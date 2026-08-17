@@ -1,0 +1,7 @@
+.env
+.venv/
+memory.json
+credentials.json
+google_token.json
+__pycache__/
+*.bak

@@ -1,0 +1,12 @@
+google-genai>=2.18
+sounddevice>=0.5
+numpy>=2.0
+faster-whisper>=1.2
+pyttsx3>=2.99
+python-dotenv>=1.0
+
+# Gmail + Calendar. Optional — Jarvis runs without these, the Google
+# tools just report that they aren't set up.
+google-api-python-client>=2.150
+google-auth-httplib2>=0.2
+google-auth-oauthlib>=1.2
