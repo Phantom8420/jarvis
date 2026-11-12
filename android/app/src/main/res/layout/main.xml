@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="24dp" android:background="#0B0F14" android:gravity="center_horizontal">
+    <TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Ready" android:textColor="#7FA3B8" android:textSize="14sp" android:gravity="center"/>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="16dp">
+        <TextView android:id="@+id/log" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="#E6EEF3" android:textSize="18sp" android:lineSpacingMultiplier="1.2"/>
+    </ScrollView>
+    <Button android:id="@+id/talk" android:layout_width="180dp" android:layout_height="180dp"
+        android:text="Hold to talk" android:textColor="#0B0F14" android:backgroundTint="#4FC3F7" android:layout_marginTop="16dp"/>
+    <Button android:id="@+id/setup" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Hub settings" style="@style/Widget.AppCompat.Button.Borderless" android:textColor="#7FA3B8"/>
+</LinearLayout>
