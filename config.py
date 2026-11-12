@@ -37,7 +37,7 @@ def _float(name: str, default: float) -> float:
 # --- brain ------------------------------------------------------------------
 # The client reads GOOGLE_API_KEY or GEMINI_API_KEY from the environment on
 # its own (checked in that order) — no key is read directly in this file.
-MODEL = (os.environ.get("JARVIS_MODEL") or "gemini-2.5-flash").strip()
+MODEL = (os.environ.get("JARVIS_MODEL") or "gemini-flash-latest").strip()
 # low | medium | high — Gemini's equivalent of a reasoning-depth dial.
 THINKING_LEVEL = (os.environ.get("JARVIS_THINKING_LEVEL") or "medium").strip()
 PROVIDERS = (os.environ.get("JARVIS_PROVIDERS") or "gemini").strip()
