@@ -97,3 +97,6 @@ TIMEZONE = (os.environ.get("JARVIS_TIMEZONE") or "Asia/Kolkata").strip()
 MEMORY_PATH = Path(
     (os.environ.get("JARVIS_MEMORY_PATH") or "").strip() or (ROOT / "memory.json")
 )
+NOTES_PATH = Path(
+    (os.environ.get("JARVIS_NOTES_PATH") or "").strip() or (ROOT / "notes.db")
+)
