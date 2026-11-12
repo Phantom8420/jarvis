@@ -40,6 +40,7 @@ def _float(name: str, default: float) -> float:
 MODEL = (os.environ.get("JARVIS_MODEL") or "gemini-2.5-flash").strip()
 # low | medium | high — Gemini's equivalent of a reasoning-depth dial.
 THINKING_LEVEL = (os.environ.get("JARVIS_THINKING_LEVEL") or "medium").strip()
+PROVIDERS = (os.environ.get("JARVIS_PROVIDERS") or "gemini").strip()
 MAX_TOKENS = _int("JARVIS_MAX_TOKENS", 8000)
 MAX_TOOL_ITERATIONS = _int("JARVIS_MAX_TOOL_ITERATIONS", 24)
 
