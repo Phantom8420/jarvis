@@ -23,6 +23,7 @@ from pathlib import Path
 
 import config
 import memory
+import notes
 
 log = logging.getLogger("jarvis.tools")
 
@@ -424,6 +425,29 @@ def forget(about: str) -> str:
         about: Substring identifying which facts to drop.
     """
     return memory.forget(about)
+
+
+def save_note(text: str, tags: str = "") -> str:
+    """Save something to the user's long-term notes (second brain).
+
+    Use for ideas, meeting notes, decisions, things worth finding later. For a
+    short standing fact about the user, use remember instead.
+
+    Args:
+        text: The note, self-contained enough to make sense months later.
+        tags: Optional space-separated keywords.
+    """
+    return notes.add(text, tags)
+
+
+def search_notes(query: str) -> list[str]:
+    """Search the user's saved notes. Check this before saying you don't know
+    something the user may have told you or written down earlier.
+
+    Args:
+        query: Keywords to look for.
+    """
+    return notes.search(query) or ["No matching notes."]
 
 
 # --- helpers ----------------------------------------------------------------
