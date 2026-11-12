@@ -470,7 +470,7 @@ READ_TOOLS = [
     system_status,
 ]
 ACTION_TOOLS = [open_app, focus_window, open_url, media_control]
-MEMORY_TOOLS = [remember, forget]
+MEMORY_TOOLS = [remember, forget, save_note, search_notes]
 
 
 def active_tools() -> list:
