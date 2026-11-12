@@ -96,13 +96,13 @@ def main() -> int:
         print("Input devices:\n" + ears.list_devices())
         return 0
 
-    import brain as brain_mod
+    import chain
 
     try:
-        brain = brain_mod.Brain()
+        brain = chain.ChainBrain()
     except Exception as e:
         log.error("Could not start: %s", e)
-        log.error("Set GEMINI_API_KEY in .env or the environment.")
+        log.error("Set GEMINI_API_KEY (or another provider's key) in .env, and JARVIS_PROVIDERS.")
         return 1
 
     log.info(
