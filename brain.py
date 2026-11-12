@@ -80,6 +80,10 @@ _REFUSAL_REASONS = {
 }
 
 
+class ProviderError(Exception):
+    """Rate limit or outage: the chain should try the next provider."""
+
+
 def _system_prompt() -> str:
     return SYSTEM + memory.as_prompt_block()
 
