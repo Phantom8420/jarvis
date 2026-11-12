@@ -106,7 +106,8 @@ def main() -> int:
         return 1
 
     log.info(
-        "model=%s thinking=%s writes=%s shell=%s approval=%s",
+        "providers=%s model=%s thinking=%s writes=%s shell=%s approval=%s",
+        [getattr(p, "name", "gemini") for p in brain.providers],
         config.MODEL,
         config.THINKING_LEVEL,
         config.ALLOW_WRITES,
