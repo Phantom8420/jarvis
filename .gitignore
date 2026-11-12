@@ -1,6 +1,7 @@
 .env
 .venv/
 memory.json
+notes.db
 credentials.json
 google_token.json
 __pycache__/
