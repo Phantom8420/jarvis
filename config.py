@@ -44,6 +44,10 @@ MAX_TOKENS = _int("JARVIS_MAX_TOKENS", 8000)
 MAX_TOOL_ITERATIONS = _int("JARVIS_MAX_TOOL_ITERATIONS", 24)
 
 # --- ears -------------------------------------------------------------------
+# Hub mode (server.py): the process runs on a shared VM, so only the memory/notes
+# tools are exposed. No file, window or shell access to the host.
+HUB = _flag("JARVIS_HUB", False)
+
 WAKE_WORD = (os.environ.get("JARVIS_WAKE_WORD") or "jarvis").strip().lower()
 # Speech is only treated as a command if the wake word appears within this many
 # characters of the start. Keeps "...as jarvis would say" from triggering.
