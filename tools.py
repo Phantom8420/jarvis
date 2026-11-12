@@ -474,6 +474,8 @@ MEMORY_TOOLS = [remember, forget, save_note, search_notes]
 
 
 def active_tools() -> list:
+    if config.HUB:
+        return list(MEMORY_TOOLS)
     tools = [*READ_TOOLS, *ACTION_TOOLS, *MEMORY_TOOLS]
     if config.ALLOW_WRITES:
         tools.append(write_file)
