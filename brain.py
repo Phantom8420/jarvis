@@ -143,6 +143,7 @@ class Brain:
     def ask(self, user_input: str) -> str:
         """Run one full turn and return the text to speak."""
         self._refresh_system_prompt()
+        start = len(self.contents)  # rolled back to here if the provider fails mid-turn
         self.contents.append(types.Content(role="user", parts=[types.Part.from_text(text=user_input)]))
 
         for _ in range(config.MAX_TOOL_ITERATIONS):
@@ -151,11 +152,14 @@ class Brain:
                     model=config.MODEL, contents=self.contents, config=self.config
                 )
             except errors.ClientError as e:
+                self.contents = self.contents[:start]
+                if e.code == 429:
+                    raise ProviderError(f"gemini rate limited: {e}") from e
                 log.error("Gemini rejected the request: %s", e)
                 return "That request hit an API error I can't recover from."
             except errors.ServerError as e:
-                log.warning("Gemini server error: %s", e)
-                return "The model service is having trouble right now — try again in a moment."
+                self.contents = self.contents[:start]
+                raise ProviderError(f"gemini server error: {e}") from e
 
             if not response.candidates:
                 return "I got no response back."
