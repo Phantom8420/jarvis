@@ -112,6 +112,10 @@ class Brain:
     def reset(self) -> None:
         self.contents = []
 
+    def seed(self, user: str, reply: str) -> None:
+        self.contents.append(types.Content(role="user", parts=[types.Part.from_text(text=user)]))
+        self.contents.append(types.Content(role="model", parts=[types.Part.from_text(text=reply)]))
+
     def _refresh_system_prompt(self) -> None:
         # Memory can change between turns (remember/forget); keep it current
         # without touching tools or thinking_config, which stay fixed.
